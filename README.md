@@ -4,15 +4,15 @@
 `RAFL.py` is a command-line Python script that executes image processing, segmentation, and data analysis to extract individual cell metrics for average and relative fluorophore intensities across distinct cellular regions (nucleus, cytoplasm). 
 
 # Table of contents 
-1. [Overview] (##Overview)
-2. [System Requirements] (##System-Requirements)
-3. [Installation Guide] (##Installation-Guide)
-4. [Demo] (##Demo)
-5. [Parameters that can be changed] (##Parameters-that-can-be-changed)
-6. [IMPORTANT: Naming your input] (##IMPORTANT:-Naming-your-input)
-7. [Contact] (##Contact)
+1. [Overview] (https://github.com/cngsc/RAFL#overview)
+2. [System Requirements] (https://github.com/cngsc/RAFL#system-requirements)
+3. [Installation Guide] (https://github.com/cngsc/RAFL#installation-guide)
+4. [Demo] (https://github.com/cngsc/RAFL#demo)
+5. [Parameters that can be changed] (https://github.com/cngsc/RAFL#parameters-that-can-be-changed)
+6. [IMPORTANT: Naming your input] (https://github.com/cngsc/RAFL#important-naming-your-input)
+7. [Contact] (https://github.com/cngsc/RAFL#contact)
 
-## Overview [](##){name=Overview}
+## Overview
 ### RAFL.py
 `RAFL.py`  supports image folders and enables cell gating based on nuclear stain intensity. Users can define their own gating thresholds or allow the script to calculate them automatically (see usage). 
 
@@ -27,7 +27,7 @@ For the demo set, images were taken with the Nikon A1R cnfocal microscope with l
 405-nm violet laser, 488-nm blue laser, 561-nm green laser and 639-nm red laser  
 w1: DAPI w2: GFP, w3: RFP, w4: CY5, w5: TD 
 
-## System Requirements [](##){name=System-Requirements}
+## System Requirements
 ### OS Requirements
 These command line scripts require only a standard computer with enough RAM to support the size of the dataset to be analysed by the user. 
 The command line scripts have been tested on the following systems : 
