@@ -1,7 +1,16 @@
 
-# Relative Analysis of Fluorescence Localisation (RAFL) 
+# RAFL: Relative Analysis of Fluorescence Localisation
 
 `RAFL.py` is a command-line Python script that executes image processing, segmentation, and data analysis to extract individual cell metrics for average and relative fluorophore intensities across distinct cellular regions (nucleus, cytoplasm). 
+
+# Table of contents 
+1. [Overview] (##Overview)
+2. [System Requirements] (##System-Requirements)
+3. [Installation Guide] (##Installation-Guide)
+4. [Demo] (##Demo)
+5. [Parameters that can be changed] (##Parameters-that-can-be-changed)
+6. [IMPORTANT: Naming your input] (##IMPORTANT:-Naming-your-input)
+7. [Contact] (##Contact)
 
 ## Overview 
 ### RAFL.py
@@ -13,8 +22,9 @@ The script generates an image folder containing histograms depicting nuclear sta
 
 ### nd2totif.py
 To aid analysis of raw image data obtained using a Nikon microscope with file extension .nd2, `nd2totif.py` code can be run from the command line to split each .nd2 file into the 5 flurophore channels and save each channel for each image as a .tif into a 'convertedtifs' folder. For this, the .nd2 images should be in a folder titled 'raw_images'. See demo for more details. Depending on the microscope used, the number of channels will differ. 
-For the demo set, images were taken with the Nikon A1R cnfocal microscope with laser settings:
-405-nm violet laser, 488-nm blue laser, 561-nm green laser and 639-nm red laser
+
+For the demo set, images were taken with the Nikon A1R cnfocal microscope with laser settings:  
+405-nm violet laser, 488-nm blue laser, 561-nm green laser and 639-nm red laser  
 w1: DAPI w2: GFP, w3: RFP, w4: CY5, w5: TD 
 
 ## System Requirements 
@@ -47,7 +57,7 @@ skimage
 matplotlib
 nd2
 ```
-## Installation guide 
+## Installation Guide 
 RAFL is implemented in Python ver 3.0 and can be installed by downloading the folder, and copying the .py files into your project folder file (see Usage)
 
 ## Demo 
@@ -59,11 +69,11 @@ _if using windows, replace **python3** with **python** in the following code sni
 First, check and install the required dependencies if not already present  
 ```python3 setup.py```  
 
-Next, unpack the .nd2 images in the raw_images folder, and split them to their individual channels as .tif
+Next, unpack the .nd2 images in the raw_images folder, and split them to their individual channels as .tif  
 ```python3 nd2totif.py```  
 Now you should have a new folder generated "convertedtifs" that have each .nd2 image now split into their 5 individual channel .tifs
 
-Next, run the segmentation and analysis code 
+Next, run the segmentation and analysis code  
 ```python3 RAFL.py```
 ### Expected outputs
 After the code has been run, the outputs are: 
@@ -72,17 +82,17 @@ After the code has been run, the outputs are:
 This splits each condition into a seperate excel sheet, and tabulates the respective metrics for each individual cell analysed for that condition (index is well-site-nuclearlabelnumber)
 3) An excel file with the label currentfoldername_Results.xlsx
 This excel file has summaries of the respective metrics for each condition (index = condition) for each fluoropohore, and the following excel sheets each individual metric for individual cells (tabulated in rows) grouped into conditions (columns). 
-### Expected run time for demo:
+### Expected run time for demo set:
 on MacOS Ventura 13.4.1: 82 seconds  
-on windows x64 ver 10.0.22621.1848 : 166s 
+on windows x64 ver 10.0.22621.1848 : 166 seconds
 
 ## Usage
 
 ### Command line usage 
 **Quick guide**
-1) Download folder
+1) Download the folder from https://github.com/cngsc/RAFL
 2) Copy the three .py scripts into your experiment folder. 
-3) Run setup.py from command line to install dependencies (make sure experimet folder is your working directory)  
+3) Run setup.py from command line to install dependencies (make sure experiment folder is your working directory)  
 ```python3 setup.py```
 4) Ensure that images to be processed are in a folder "convertedtifs" in the current experiment folder where code is present. Else, change folder name to desired name on line 30 of RAFL.py
 5) Ensure that your tif image naming system follows the required naming system (see Naming your input section)
@@ -96,8 +106,8 @@ This determines how much distance in pixels the nuclear mask is circumferentiall
 **Segmentation footprint and minimum distance [line 16, 17]**  
 These affect the segmentation of nuclei using using the skimage package. (see peak_local_max under skimage documentation https://scikit-image.org/docs/stable/api/skimage.feature.html#skimage.feature.peak_local_max)
   
-**gatebyfixed values [line 24]**  
-Here, we set the bounds to gate out dead, dying cells or cells by gating out nuclei that are intensely stained with nuclear stain over a small area. Gating histogram is plotted in the ouput of `RAFL.py` and can be visualised in the generated 'Overlay_and_segmentation_images' output folder generated. 
+**Defining gates [line 24]**  
+Here, we set the bounds to gate out dead, dying cells or cells by gating out nuclei that have intense nuclear stain intensities over a small area. Gating histogram is plotted in the ouput of `RAFL.py` and can be visualised in the generated 'Overlay_and_segmentation_images' folder. 
 
 Users can choose to either use:
 1. Automatic gating  
@@ -108,15 +118,15 @@ Users can choose to either use:
 ## IMPORTANT: Naming your input
 `RAFL.py` takes in 3 fluorophore images (wavelengths) for each field of view :
 
-    w1 is the nuclear stain for segmentation  
-    w2 is fluorophore 1 (written as 'GFP')  
-    w3 is fluorophore 2 (written as 'RFP')  
+w1 is the nuclear stain for segmentation  
+w2 is fluorophore 1 (written as 'GFP')  
+w3 is fluorophore 2 (written as 'RFP')  
 
 and also takes into account multiple sites (field of views) for a single condition (well)
 
-Name the files like so:
+Name the files like so:  
 **(condition or well)-(site)_(wavelength)**  
-eg: 1-1_w1 means condition1, site1, wavelegth1 (dapi)
+eg: 1-1_w1 means condition1, site1, wavelength1 (dapi)
 
 if files are named a different way, please go to:  
     line 373, 234 to change site  
@@ -125,6 +135,6 @@ if files are named a different way, please go to:
     line 488, 491, 503 to change fluorophore wavelengths  
 
 
+## Contact
 
-## Contact: 
 If you have any problems, questions, ideas or suggestions, please email christinengsc97@gmail.com
