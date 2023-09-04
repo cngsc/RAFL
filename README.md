@@ -4,12 +4,12 @@
 `RAFL.py` is a command-line Python script that executes image processing, segmentation, and data analysis to extract individual cell metrics for average and relative fluorophore intensities across distinct cellular regions (nucleus, cytoplasm). 
 
 ## Table of contents 
-[Overview](https://github.com/cngsc/RAFL#overview)
-[System Requirements](https://github.com/cngsc/RAFL#system-requirements)
-[Installation Guide](https://github.com/cngsc/RAFL#installation-guide)
-[Demo](https://github.com/cngsc/RAFL#demo)
-[Parameters that can be changed](https://github.com/cngsc/RAFL#parameters-that-can-be-changed)
-[IMPORTANT: Naming your input](https://github.com/cngsc/RAFL#important-naming-your-input)
+[Overview](https://github.com/cngsc/RAFL#overview)  
+[System Requirements](https://github.com/cngsc/RAFL#system-requirements)  
+[Installation Guide](https://github.com/cngsc/RAFL#installation-guide)  
+[Demo](https://github.com/cngsc/RAFL#demo)  
+[Parameters that can be changed](https://github.com/cngsc/RAFL#parameters-that-can-be-changed)  
+[IMPORTANT: Naming your input](https://github.com/cngsc/RAFL#important-naming-your-input)  
 [Contact](https://github.com/cngsc/RAFL#contact)
 
 ## Overview
