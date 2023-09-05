@@ -8,7 +8,8 @@
 [System Requirements](https://github.com/cngsc/RAFL#system-requirements)  
 [Installation Guide](https://github.com/cngsc/RAFL#installation-guide)  
 [Demo](https://github.com/cngsc/RAFL#demo)  
-[Parameters that can be changed](https://github.com/cngsc/RAFL#parameters-that-can-be-changed)  
+[Usage](https://github.com/cngsc/RAFL#usage)  
+[Parameters that can be changed in RAFL.py](https://github.com/cngsc/RAFL#parameters-that-can-be-changed)  
 [IMPORTANT: Naming your input](https://github.com/cngsc/RAFL#important-naming-your-input)  
 [Contact](https://github.com/cngsc/RAFL#contact)
 
@@ -23,7 +24,7 @@ The script generates an image folder containing histograms depicting nuclear sta
 ### nd2totif.py
 To aid analysis of raw image data obtained using a Nikon microscope with file extension .nd2, `nd2totif.py` code can be run from the command line to split each .nd2 file into the 5 flurophore channels and save each channel for each image as a .tif into a 'convertedtifs' folder. For this, the .nd2 images should be in a folder titled 'raw_images'. See demo for more details. Depending on the microscope used, the number of channels will differ. 
 
-For the demo set, images were taken with the Nikon A1R cnfocal microscope with laser settings:  
+For the demo set, images were taken with the Nikon A1R confocal microscope with laser settings:  
 405-nm violet laser, 488-nm blue laser, 561-nm green laser and 639-nm red laser  
 w1: DAPI w2: GFP, w3: RFP, w4: CY5, w5: TD 
 
@@ -99,7 +100,7 @@ on windows x64 ver 10.0.22621.1848 : 166 seconds
 6) Run RAFL.Py from the command line  
 ```"python3 RAFL.py"```
 
-## Parameters that can be changed:
+## Parameters that can be changed in RAFL.py
 **Cell growth size in pixels [line 15]**  
 This determines how much distance in pixels the nuclear mask is circumferentially grown from the nucleus to define "cell area". Users can visualise 
 
