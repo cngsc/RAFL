@@ -13,7 +13,7 @@ dependencies = [
     'matplotlib',
     'matplotlib.mlab',
     'nd2',
-    'warnings'
+    'warnings',
     'openpyxl',
 ]
 
