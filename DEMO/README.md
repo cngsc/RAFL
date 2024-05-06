@@ -21,6 +21,8 @@ The resulting single-cell metrics include relative fluorophore intensities per r
 
 The script generates an image folder containing histograms depicting nuclear stain intensity distribution across all analyzed cells in the dataset, clearly marking the gating thresholds. Additionally, it creates overlays of nuclear and cytoplasmic masks on fluorophore images, alongside segmentation and gating process images for each field of view. 
 
+`RAFL.py` is an improved version doing exactly the same as `RAFL.py`, but also plots the label number of each cell on every mask-fluorphore overlay image output.  
+
 ### nd2totif.py
 To aid analysis of raw image data obtained using a Nikon microscope with file extension .nd2, `nd2totif.py` code can be run from the command line to split each .nd2 file into the 5 fluorophore channels and save each channel for each image as a .tif into a 'convertedtifs' folder. For this, the .nd2 images should be in a folder titled 'raw_images'. See demo for more details. Depending on the microscope used, the number of channels will differ. 
 
