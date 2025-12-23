@@ -103,8 +103,8 @@ def calculate_intensities(img, labels):
             if labels[y][x] != 0: #avoid label0 because that is background pixel 
                 nuc = labels[y][x]
                 if nuc not in di.keys():
-                    di[nuc] = 0           # initiate count for intensities sum for label if it doesnt already exist
-                di[nuc] += img[y][x]   #now that you have initiated count, add the pixel value from img at that x y position for that label of nuc
+                    di[nuc] = int(0)           # initiate count for intensities sum for label if it doesnt already exist
+                di[nuc] += int(img[y][x])   #now that you have initiated count, add the pixel value from img at that x y position for that label of nuc
     return di
 
 def average_intensities(dareas, di):
@@ -417,13 +417,13 @@ def summing_image_intensities(
                 newlabel = prefix + str(currlabel) #new label has site infront of the nuclear label, (for future concatenation into large overarching dictionaries)
              
                 if newlabel not in nuc_pixint_perlabel_dict.keys():
-                    nuc_pixint_perlabel_dict[newlabel] = 0 # initiate sum if label not already in dictionaries 
+                    nuc_pixint_perlabel_dict[newlabel] = int(0) # initiate sum if label not already in dictionaries 
 
                 if newlabel not in area_nuc_perlabel_dict.keys():
                     area_nuc_perlabel_dict[newlabel] = 0
 
                 # add that pixel intensity at that point to the labels value in the dictionary 
-                nuc_pixint_perlabel_dict[newlabel]+= img[y][x] 
+                nuc_pixint_perlabel_dict[newlabel]+= int(img[y][x])
                 # add that point the area of that label 
                 area_nuc_perlabel_dict[newlabel] += 1  
                 # note this is different from dareas tabulated earlier, because those are on unshrunken, ungated nuclei masks
@@ -433,11 +433,11 @@ def summing_image_intensities(
                 newlabel = prefix + str(currlabel)     
                 # initiate sum if label not already in dictionaries 
                 if newlabel not in cyto_pixint_perlabel_dict.keys():
-                    cyto_pixint_perlabel_dict[newlabel] = 0 
+                    cyto_pixint_perlabel_dict[newlabel] = int(0) 
                 if newlabel not in area_cyto_perlabel_dict.keys():
-                    area_cyto_perlabel_dict[newlabel] = 0
+                    area_cyto_perlabel_dict[newlabel] = int(0)
                 
-                cyto_pixint_perlabel_dict[newlabel]+= img[y][x] # add that pixel intensity at that point to the labels value in the dictionary
+                cyto_pixint_perlabel_dict[newlabel]+= int(img[y][x]) # add that pixel intensity at that point to the labels value in the dictionary
                 area_cyto_perlabel_dict[newlabel] += 1 
 
     # After looping through the whole image, you now have four dictionaries: one that points to the sum of nuclei color intensity per nucleus label eg: nuc_pixint_perlabel_dict[1]=36
